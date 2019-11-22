@@ -44,7 +44,7 @@ h1 {
   border-radius: 15px;
   justify-content: center;
   align-items: center;
-  overflow: scroll;
+  overflow-y: auto;
 }
 .wrapper .todolist .list .outer-item {
   transition: opacity 1000ms linear;
