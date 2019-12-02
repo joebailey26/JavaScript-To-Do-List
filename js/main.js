@@ -44,7 +44,7 @@ function handleCloseClick(e) {
   outer_item.style.opacity = 0;
   setTimeout(() => {
     buildList();
-  }, 2000);
+  }, 1000);
 }
 
 function buildList() {
@@ -65,7 +65,7 @@ function buildList() {
   /**
    * Below, I use the array.map method to iterate over our todo list
    * I pass an arrow function into map https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions
-   * Can you work out what's going on below? Why are we using map here and forEach below
+   * Can you work out what's going on below? Why are we using map here and for...of below
    */
   let htmlList = todoList.map((item, id) => buildListItemTemplate(item, id)).join(' ');
   listHtmlElm.innerHTML = htmlList;
@@ -77,9 +77,9 @@ function buildList() {
    * event listener
    */
 
-  document
-    .querySelectorAll(".close")
-    .forEach(e => e.addEventListener("click", handleCloseClick));
+  for(const element of document.querySelectorAll(".close")) {
+    element.addEventListener("click", handleCloseClick)
+  }
 }
 
 function buildListItemTemplate(listItem, id) {
